@@ -1,9 +1,9 @@
 package models
 
 import (
-	"gopkg.in/couchbaselabs/gocb.v1"
+	"github.com/couchbase/gocb"
 	"os"
-	"github.com/leandro/adapter"
+	"github.com/vitorleandroloureiro/ACL/adapter"
 )
 
 
@@ -12,7 +12,7 @@ type DB interface {
 }
 
 
-func NewCouchbase() *DB {
+func NewCouchbase() *adapter.Bucket {
 
 	//REMOVE THIS
 	os.Setenv("couchbaseConnection","couchbase://localhost");

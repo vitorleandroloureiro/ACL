@@ -3,7 +3,7 @@ package controllers
 import (
 	"net/http"
 	"github.com/julienschmidt/httprouter"
-	"github.com/leandro/models"
+	"github.com/vitorleandroloureiro/ACL/models"
 )
 
 func CreateHandler(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {

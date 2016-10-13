@@ -5,8 +5,8 @@ import (
 	"net/http"
 	"fmt"
 	"log"
-	"github.com/leandro/controllers"
-	"github.com/leandro/models"
+	"github.com/vitorleandroloureiro/ACL/controllers"
+	"github.com/vitorleandroloureiro/ACL/models"
 
 )
 
