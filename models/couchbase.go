@@ -1,0 +1,32 @@
+package models
+
+import (
+	"gopkg.in/couchbaselabs/gocb.v1"
+	"os"
+	"github.com/leandro/adapter"
+)
+
+
+type DB interface {
+	Get(key string) interface{}
+}
+
+
+func NewCouchbase() *DB {
+
+	//REMOVE THIS
+	os.Setenv("couchbaseConnection","couchbase://localhost");
+	os.Setenv("bucketName","default");
+	os.Setenv("bucketPassword","");
+
+	connection := os.Getenv("couchbaseConnection")
+	bucketName := os.Getenv("bucketName")
+	bucketPassword := os.Getenv("bucketPassword")
+
+	cluster, _ := gocb.Connect(connection)
+	bucket, _ := cluster.OpenBucket(bucketName, bucketPassword)
+
+	return &adapter.Bucket{
+		CbBucket: bucket,
+	}
+}
